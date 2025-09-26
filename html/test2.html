@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>QR 코드 생성기</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <h2>QR 코드 생성기</h2>
+  <input type="text" id="qr-text" placeholder="QR 코드에 넣을 텍스트">
+  <button onclick="generateQR()">생성</button>
+  <div id="qrcode"></div>
+
+  <script>
+    function generateQR() {
+      const text = document.getElementById("qr-text").value;
+      const container = document.getElementById("qrcode");
+      container.innerHTML = ""; // 이전 내용 초기화
+      new QRCode(container, {
+        text: text,
+        width: 200,
+        height: 200
+      });
+    }
+  </script>
+</body>
+</html>
